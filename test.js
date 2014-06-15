@@ -22,7 +22,7 @@ describe('Foyer', function () {
     }
 
     foyer([
-      function(end) {throw('err')}, 
+      function(end) {end('err')}, 
     ], check);
   });
 
