@@ -43,5 +43,5 @@ foyer(tasks, cb);
 [npm-url]: https://npmjs.org/package/foyer
 [travis-image]: https://img.shields.io/travis/yoshuawuyts/foyer.svg?style=flat
 [travis-url]: https://travis-ci.org/yoshuawuyts/foyer
-[coveralls-image]: https://img.shields.io/coveralls/yoshuawuyts/foyersvg?style=flat
+[coveralls-image]: https://img.shields.io/coveralls/yoshuawuyts/foyer.svg?style=flat
 [coveralls-url]: https://coveralls.io/r/yoshuawuyts/foyer?branch=master
