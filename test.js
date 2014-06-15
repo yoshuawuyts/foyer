@@ -15,16 +15,27 @@ describe('Foyer', function () {
     foyer.bind(foyer, [function(){}]).should.not.throw('Tasks must be an array of functions');
   });
 
+  it('should catch err responses', function (done) {
+    function check(err, res) {
+      err.should.equal('err');
+      done();
+    }
+
+    foyer([
+      function(end) {return end('err')}, 
+    ], check);
+  });
+
   it('should execute functions asynchronously', function (done) {
     var callCount = 0;
 
-    function checkIfEnded() {
+    function check() {
       if (callCount == 2) done();
     }
 
     foyer([
       function(end) {setTimeout(function(){callCount++; end();}, 10)}, 
       function(end) {callCount++; end()}
-    ], checkIfEnded);
+    ], check);
   });
 });
