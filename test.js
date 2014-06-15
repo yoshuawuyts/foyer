@@ -17,7 +17,7 @@ describe('Foyer', function () {
 
   it('should catch err responses', function (done) {
     function check(err, res) {
-      err.should.equal('err');
+      err.should.eql(['err']);
       done();
     }
 

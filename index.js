@@ -41,14 +41,10 @@ function foyer(tasks, cb) {
 
     function callback(err, res) {
       if (done) return;
-      if (err) {
-        done = true; 
-        return cb(err);
-      }
 
-      results[i] = res;
-      errors[i] = err;
-      if(index == tasks.length) cb(errors, results);
+      if (res) results[i] = res;
+      if (err) errors[i] = err;
+      if (index == tasks.length) cb(errors, results);
     }
   }
 
