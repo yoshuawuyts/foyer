@@ -19,7 +19,9 @@ module.exports = foyer;
  */
 
 function foyer(tasks, cb) {
+  if (!(this instanceof foyer)) return new foyer(tasks, cb);
   assert('[object Array]' == Object.prototype.toString.call(tasks), 'Tasks must be an array of functions');
+
   cb = cb || function(){};
   var done = false;
   var results = [];
@@ -39,7 +41,10 @@ function foyer(tasks, cb) {
 
     function callback(err, res) {
       if (done) return;
-      if (err) return done = true, cb(err);
+      if (err) {
+        done = true; 
+        return cb(err);
+      }
 
       results[i] = res;
       errors[i] = err;
