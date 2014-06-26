@@ -12,26 +12,26 @@ $ npm i --save foyer
 ```js
 var foyer = require('foyer');
 
-function callback(err, res) {
-  return res;
-  // => ['myRes2', 'myRes']
-}
-
 foyer([
-  function(done) {setTimeout(function(){end('myError', 'myRes');}, 10)}, 
-  function(done) {end('myError2', 'myRes2')}
-], callback);
+  function(done) {setTimeout(function(){done('myError', 'myRes');}, 10)}, 
+  function(done) {done('myError2', 'myRes2')}
+], function callback(err, res) {return res;});
+// => ['myRes2', 'myRes']
 ```
 
 ## API
 #### foyer([functions], callback)
 ```js
+// Define an array of async functions.
 var tasks = [
   function(done){done(null, 'hello')}, 
   function(done){done(null, 'world')}
 ];
+
+// Define the callback to be executed
 var cb = function(err, res){return res};
 
+// Run 'Foyer' to execute your tasks and run the callback when finished
 foyer(tasks, cb);
 // => ['hello', 'world']
 ```
