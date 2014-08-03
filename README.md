@@ -1,7 +1,8 @@
 # foyer
 [![NPM version][npm-image]][npm-url] [![build status][travis-image]][travis-url] [![Test coverage][coveralls-image]][coveralls-url]
 
-Execute async functions in parallel and trigger a callback when done.
+Execute async functions in parallel and trigger a callback when done. Sets the
+context of the executed functions to itself.
 
 ## Installation
 ```bash

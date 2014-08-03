@@ -19,10 +19,8 @@ module.exports = foyer;
  */
 
 function foyer(tasks, cb) {
-  if (!(this instanceof foyer)) return new foyer(tasks, cb);
   assert('[object Array]' == Object.prototype.toString.call(tasks), 'Tasks must be an array of functions');
   assert('function' == typeof cb, 'Callback must be a function');
-
   var done = false;
   var results = [];
   var errors = [];
@@ -33,7 +31,7 @@ function foyer(tasks, cb) {
     var fn = tasks[i];
     
     if (!fn) return;
-    fn(callback)
+    fn.call(this, callback);
 
     function callback(err, res) {
       if (done) return;
@@ -42,11 +40,10 @@ function foyer(tasks, cb) {
       if (index == tasks.length) cb(errors, results);
     }
   }
-
   // start async functions
   tasks.forEach(function() {
-    next();
-  });
+    next.call(this);
+  }.bind(this));
 
   return this;
 }
