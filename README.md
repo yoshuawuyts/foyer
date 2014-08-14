@@ -14,7 +14,7 @@ $ npm i --save foyer
 var foyer = require('foyer');
 
 foyer([
-  function(done) {setTimeout(function(){done('myError', 'myRes');}, 10)}, 
+  function(done) {setTimeout(function(){done('myError', 'myRes');}, 10)},
   function(done) {done('myError2', 'myRes2')}
 ], function callback(err, res) {return res;});
 // => ['myRes2', 'myRes']
@@ -25,7 +25,7 @@ foyer([
 ```js
 // Define an array of async functions.
 var tasks = [
-  function(done){done(null, 'hello')}, 
+  function(done){done(null, 'hello')},
   function(done){done(null, 'world')}
 ];
 
@@ -40,9 +40,9 @@ foyer(tasks, cb);
 ## License
 [MIT](https://tldrlegal.com/license/mit-license) © [Yoshua Wuyts](yoshuawuyts.com)
 
-[npm-image]: https://img.shields.io/npm/v/foyer.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/foyer.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/foyer
-[travis-image]: https://img.shields.io/travis/yoshuawuyts/foyer.svg?style=flat
+[travis-image]: https://img.shields.io/travis/yoshuawuyts/foyer.svg?style=flat-square
 [travis-url]: https://travis-ci.org/yoshuawuyts/foyer
-[coveralls-image]: https://img.shields.io/coveralls/yoshuawuyts/foyer.svg?style=flat
+[coveralls-image]: https://img.shields.io/coveralls/yoshuawuyts/foyer.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/yoshuawuyts/foyer?branch=master
